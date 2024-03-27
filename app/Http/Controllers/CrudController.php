@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Crud;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -12,7 +14,8 @@ class CrudController extends Controller
    }
 
    public function ShowData(){
-    return view('show_data');
+      $shData=  Crud::all();
+    return view('show_data', compact('shData'));
    }
 
    public function storeData(Request $request){
@@ -25,8 +28,15 @@ class CrudController extends Controller
       'email.required'=>'Email is required'
      ];
      $this->validate($request,$req,$cm);
+     $crud=new Crud();
+     $crud->name=$request->name;
+     $crud->email=$request->email;
+     $crud->save();
+
+     Session()->flash('msg', 'Successfully Added');
+
    
-      return $request->all();
+      return redirect()->back();
 
    }
 }

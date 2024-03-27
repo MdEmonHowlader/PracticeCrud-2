@@ -13,18 +13,20 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                
               </tr>
             </thead>
             <tbody>
+              @foreach ($shData as $key=>$data )
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>{{$key+1}}</td>
+                <td>{{$data->name}}</td>
+                <td>{{$data->email}}</td>
               </tr>
+              @endforeach
+            
           </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
