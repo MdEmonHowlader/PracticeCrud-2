@@ -13,14 +13,14 @@
             @csrf
             <div class="form-group">
               <label for="">Name</label>
-              <input type="text" class="form-control"  placeholder="Enter your name">
+              <input type="text" name="name" class="form-control"  placeholder="Enter your name">
               @error('name')
                   <span class="text-danger">{{$message}}</span>
               @enderror
             </div>
             <div class="form-group">
               <label for="">Email</label>
-              <input type="text" class="form-control" id="" placeholder="Enter your  email">
+              <input type="text" name="email" class="form-control" id="" placeholder="Enter your  email">
               @error('email')
                   <span class="text-danger">{{$message}}</span>
               @enderror

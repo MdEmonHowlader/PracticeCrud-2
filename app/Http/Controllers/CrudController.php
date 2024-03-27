@@ -16,11 +16,16 @@ class CrudController extends Controller
    }
 
    public function storeData(Request $request){
-      $request->validate([
+      $req=[
          'name'=>'required',
          'email'=>'required|email',
-      ]);
-     
+      ];
+     $cm=[
+      'name.required'=>'Name is required',
+      'email.required'=>'Email is required'
+     ];
+     $this->validate($request,$req,$cm);
+   
       return $request->all();
 
    }
