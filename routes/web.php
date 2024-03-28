@@ -18,3 +18,9 @@ Route::get('/add_data', [CrudController::class, 'AddData']);
 Route::post('/store_data', [CrudController::class, 'StoreData']);
 Route::get('/edit_data/{id}', [CrudController::class, 'EditData']);
 Route::post('/update_data/{id}', [CrudController::class, 'updateData']);
+Route::get('/delete_data/{id}', [CrudController::class, 'deleteData']);
+
+Route::controller(CrudController::class)->group(function (){
+
+});
+
